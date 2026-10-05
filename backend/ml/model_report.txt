@@ -1,0 +1,55 @@
+Test accuracy: 95.91%
+
+              precision    recall  f1-score   support
+
+       apple       0.95      0.95      0.95        20
+      banana       1.00      1.00      1.00        20
+   blackgram       1.00      1.00      1.00        20
+    chickpea       1.00      1.00      1.00        20
+     coconut       1.00      1.00      1.00        20
+      coffee       1.00      1.00      1.00        20
+      cotton       1.00      1.00      1.00        20
+      grapes       0.95      0.95      0.95        20
+        jute       0.74      0.85      0.79        20
+ kidneybeans       1.00      1.00      1.00        20
+      lentil       0.95      0.90      0.92        20
+       maize       1.00      1.00      1.00        20
+       mango       1.00      1.00      1.00        20
+   mothbeans       0.95      0.95      0.95        20
+    mungbean       0.95      1.00      0.98        20
+   muskmelon       0.90      0.90      0.90        20
+      orange       1.00      1.00      1.00        20
+      papaya       1.00      1.00      1.00        20
+  pigeonpeas       1.00      1.00      1.00        20
+ pomegranate       1.00      1.00      1.00        20
+        rice       0.82      0.70      0.76        20
+  watermelon       0.90      0.90      0.90        20
+
+    accuracy                           0.96       440
+   macro avg       0.96      0.96      0.96       440
+weighted avg       0.96      0.96      0.96       440
+
+Confusion matrix:
+             apple  banana  blackgram  chickpea  coconut  coffee  cotton  grapes  jute  kidneybeans  lentil  maize  mango  mothbeans  mungbean  muskmelon  orange  papaya  pigeonpeas  pomegranate  rice  watermelon
+apple           19       0          0         0        0       0       0       1     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+banana           0      20          0         0        0       0       0       0     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+blackgram        0       0         20         0        0       0       0       0     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+chickpea         0       0          0        20        0       0       0       0     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+coconut          0       0          0         0       20       0       0       0     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+coffee           0       0          0         0        0      20       0       0     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+cotton           0       0          0         0        0       0      20       0     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+grapes           1       0          0         0        0       0       0      19     0            0       0      0      0          0         0          0       0       0           0            0     0           0
+jute             0       0          0         0        0       0       0       0    17            0       0      0      0          0         0          0       0       0           0            0     3           0
+kidneybeans      0       0          0         0        0       0       0       0     0           20       0      0      0          0         0          0       0       0           0            0     0           0
+lentil           0       0          0         0        0       0       0       0     0            0      18      0      0          1         1          0       0       0           0            0     0           0
+maize            0       0          0         0        0       0       0       0     0            0       0     20      0          0         0          0       0       0           0            0     0           0
+mango            0       0          0         0        0       0       0       0     0            0       0      0     20          0         0          0       0       0           0            0     0           0
+mothbeans        0       0          0         0        0       0       0       0     0            0       1      0      0         19         0          0       0       0           0            0     0           0
+mungbean         0       0          0         0        0       0       0       0     0            0       0      0      0          0        20          0       0       0           0            0     0           0
+muskmelon        0       0          0         0        0       0       0       0     0            0       0      0      0          0         0         18       0       0           0            0     0           2
+orange           0       0          0         0        0       0       0       0     0            0       0      0      0          0         0          0      20       0           0            0     0           0
+papaya           0       0          0         0        0       0       0       0     0            0       0      0      0          0         0          0       0      20           0            0     0           0
+pigeonpeas       0       0          0         0        0       0       0       0     0            0       0      0      0          0         0          0       0       0          20            0     0           0
+pomegranate      0       0          0         0        0       0       0       0     0            0       0      0      0          0         0          0       0       0           0           20     0           0
+rice             0       0          0         0        0       0       0       0     6            0       0      0      0          0         0          0       0       0           0            0    14           0
+watermelon       0       0          0         0        0       0       0       0     0            0       0      0      0          0         0          2       0       0           0            0     0          18

@@ -1,0 +1,26 @@
+# Academic Report – Smart Crop Recommendation System (AgroSmart)
+
+**Note:** AgroSmart is a *decision-support system*. It does not guarantee agricultural outcomes; farmers should consult agricultural experts for important decisions.
+
+1. **Project title:** AgroSmart – Smart Crop Recommendation System using Machine Learning.
+2. **Abstract:** Crop choice depends on soil nutrients, pH and climate, yet many farmers choose by habit. This project builds a web application where a farmer enters N, P, K, pH, temperature, humidity, rainfall, soil type and location. A Random Forest classifier trained on crop data predicts the most suitable crop with a confidence score, and the system adds crop information, an explanation, fertilizer and irrigation guidance, and stores the recommendation history.
+3. **Problem statement:** Selecting an unsuitable crop reduces yield and income. Farmers need a simple, data-driven tool that converts soil and weather conditions into an understandable crop suggestion.
+4. **Existing system:** Decisions rely on experience, neighbours' practice or occasional advice from extension officers; soil tests exist but are rarely interpreted into crop choices; many digital tools are English-only, complex or not personalised.
+5. **Proposed system:** A responsive React web app with a Flask REST API, a Random Forest model and a MySQL database that gives instant, explained recommendations and keeps a history for each farmer.
+6. **Objectives:** (a) recommend a suitable crop from soil and climate data; (b) explain why; (c) provide a searchable crop knowledge base; (d) store history securely; (e) keep the interface simple for non-technical users.
+7. **Scope:** Covers 22 crops, individual farmer accounts, recommendation, history and crop information. It does not include live weather/soil sensors, market prices or disease detection.
+8. **Functional requirements:** user registration/login; input validation; crop prediction; confidence score; explanation and ideal conditions; save recommendation; history table; crop search and details; dashboard.
+9. **Non-functional requirements:** security (hashed passwords, JWT, parameterised SQL); usability; responsiveness; reliability (error messages); performance (prediction in under a second); maintainability (layered code).
+10. **System architecture:** Three tiers – Presentation (React) ⇄ REST/JSON ⇄ Application (Flask: routes → services → models; ML module) ⇄ Data (MySQL + `crop_model.pkl`).
+11. **Data flow diagram:** Level 0: Farmer → [AgroSmart] → recommendation. Level 1: (1) Farmer enters data → (2) Validate → (3) Random Forest predicts → (4) Fetch crop info from `crop_information` → (5) Build explanation → (6) Store in `recommendations` → (7) Display result; Farmer ⇄ (8) History/Crop pages read from MySQL.
+12. **Use case description:** Actor *Farmer*: Register, Login, View dashboard, Enter farm details, Get recommendation, Save recommendation, View history, Search crop information, Logout. Actor *System/ML model*: validate input, predict, store.
+13. **ER diagram description:** `users (1) ── (N) recommendations` via `recommendations.user_id` (FK, cascade delete). `crop_information` is a reference table linked logically to `recommendations.recommended_crop` by crop name.
+14. **Modules:** Authentication; Dashboard; Recommendation form; ML prediction; Result/explanation; Crop information; History; Validation & security.
+15. **ML algorithm:** Random Forest builds many decision trees on random subsets of data and features and takes a majority vote, which reduces over-fitting. Here 200 trees are used; confidence is the fraction of votes (`predict_proba`). Steps: load → clean → check missing values → split features/target → 80/20 stratified split → train → evaluate (accuracy, classification report, confusion matrix) → save with Joblib. Scaling is unnecessary for tree models.
+16. **Dataset:** 2,200 rows, 22 crops, 7 features (N, P, K, temperature, humidity, pH, rainfall) + crop label. The bundled file is synthetic, modelled on the public Kaggle Crop Recommendation Dataset; replace it with the real data for final results. Soil type and location are not in the dataset and are handled outside the model.
+17. **Software requirements:** Windows/Linux/macOS, Python 3.10+, Flask, Scikit-learn, Pandas, NumPy, Joblib, MySQL 8, Node.js 18+, React, VS Code, modern browser.
+18. **Hardware requirements:** Any PC with 4 GB RAM (8 GB recommended), dual-core CPU, 2 GB free disk, internet for installing packages.
+19. **Advantages:** fast and low cost; easy interface; explains results; stores history; extensible; open-source technologies.
+20. **Limitations:** accuracy depends on dataset quality; soil type/location do not influence the ML prediction; no real-time data; fertilizer advice is general; limited to 22 crops.
+21. **Future enhancements:** live weather API; soil sensor/IoT input; regional language support; yield and price prediction; disease detection; mobile app; admin panel.
+22. **Conclusion:** AgroSmart shows how machine learning and web technology can support crop selection. As a decision-support tool it helps farmers consider data before sowing, while final decisions should involve local agricultural experts.
